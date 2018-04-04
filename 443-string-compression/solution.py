@@ -13,6 +13,8 @@ class Solution:
             while i + rep_count < n and chars[i - 1] == chars[i + rep_count]:
                 chars[i + rep_count] = None
                 rep_count += 1
+                try: next(char_iter)
+                except StopIteration as E: pass
             if rep_count > 0:
                 for j, num in enumerate(str(rep_count + 1)):
                     chars[i + j] = num
